@@ -1,0 +1,15 @@
+ba,
+{
+   {q0,q1,q2,qr,q_unreachable},
+   {b,a},
+   {b,a,B},
+   {
+      (q0,B)->(q1,B,D),
+      (q1,b)->(q2,B,D),
+      (q2,a)->(qr,B,D)
+   }, 
+   q0,
+   {qr},
+   B,
+   {q_unreachable}
+}

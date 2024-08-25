@@ -1,0 +1,61 @@
+Caso de teste 1
+
+Descrição: Teste de Aceitação Simples com Máquina Mínima e entrada aa e precisando comecar com aa
+Resultado Esperado: A máquina deve processar aa e terminar no estado de aceitação qf, resultando em "Aceita".
+Discussão: A correção e eficiência do simulador são verificadas em um cenário básico com uma transição inicial que lê B e move a cabeça para a direita.
+
+
+Caso de teste 2
+
+Descrição: Teste de Rejeição Simples com Alfabeto Diferente e entrada bb aonde a palavra nao deveria começar com b
+Resultado Esperado: A máquina deve rejeitar bb após processar o primeiro b, movendo-se para qr e resultando em "Rejeita".
+Discussão: A correção do simulador é confirmada para rejeições com alfabetos diferenciados e uma transição inicial que lê B.
+
+
+Caso de teste 3
+
+Descrição: Teste de loop infinito para entrada ab aonde a maquina está condenada a entrar em loop infinito caso comece com ab
+Resultado Esperado: A máquina deve entrar em um loop infinito após processar ab, repetindo as transições entre q3 e q4.
+Discussão: A detecção de loops infinitos é confirmada, com o simulador rodando sem parar entre q3 e q4.
+
+
+Caso de teste 4
+
+Descrição: Teste de Fita Vazia com Estado Inicial no Final aonde a fita sempre aceita, dado que q1 é inacessivel
+Resultado Esperado: A máquina deve aceitar imediatamente a fita vazia, resultando em "Aceita".
+Discussão: O comportamento esperado para fitas vazias é confirmado, com a aceitação.
+
+
+Caso de teste 5
+
+Descrição: Teste de aceitação para uma entrada complexa lendo entrada aaabbb e deve encontrar exatamente aaabbb
+Resultado Esperado: A máquina deve processar a entrada e aceitar, resultando em "Aceita".
+Discussão: A eficiência e correção do simulador são confirmadas em um cenário complexo.
+
+
+Caso de teste 6
+
+Descrição: Teste de Rejeição com Estados Inatingíveis para entrada ba 
+Resultado Esperado: A máquina deve rejeitar ba, com o unico estado final de aceitação sendo q_unreachable e este permanecendo inatingível.
+Discussão: A robustez do simulador é confirmada, garantindo que os estados inatingíveis não afetam o processamento.
+
+
+Caso de teste 7
+
+Descrição: Teste de movimento esquerda-direita com alfabeto mínimo, onde a máquina le aba.
+Resultado Esperado: A máquina deve processar aba, movendo-se corretamente no vai e volta (esquerda e direita) e terminando em aceitação no estado qf.
+Discussão: A precisão do simulador em lidar com alfabetos mínimos e movimentos é confirmada.
+
+
+Caso de teste 8
+
+Descrição: Teste de expansão para esquerda lendo ab
+Resultado Esperado: A máquina deve processar ab, movendo-se corretamente e sendo capaz de expandir conforme o necessário para esquerda e finalizando num estado final.
+Discussão: A precisão do simulador expandir para esquerda é confirmada.
+
+
+Caso de teste 9
+
+Descrição: Teste de expansão para ambos os lados lendo ab
+Resultado Esperado: A máquina deve processar ab, movendo-se corretamente no vai e volta (esquerda e direita) e sendo capaz de expandir conforme o necessário e entrando em loop infinito crescendo para direita.
+Discussão: A precisão do simulador expandir é confirmada.
