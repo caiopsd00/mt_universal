@@ -9,7 +9,7 @@ ba,
       (q2,a)->(qr,B,D)
    }, 
    q0,
+   {q_unreachable},
    {qr},
-   B,
-   {q_unreachable}
+   B
 }

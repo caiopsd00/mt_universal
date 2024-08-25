@@ -14,7 +14,7 @@ aaabbb,
       (q7,B)->(qf,B,E)
    }, 
    q0,
+   {qf},
    {qr},
-   B,
-   {qf}
+   B
 }

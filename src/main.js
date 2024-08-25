@@ -2,14 +2,14 @@ const fs = require('fs');
 
 let saidaData = '';
 class TuringMachine {
-  constructor(states, inputAlphabet, tapeAlphabet, transitions, initialState, finalStates, rejectState, blankSymbol) {
+  constructor(states, inputAlphabet, tapeAlphabet, transitions, initialState, finalStates, rejectStates, blankSymbol) {
     this.states = new Set(states);
     this.inputAlphabet = new Set(inputAlphabet);
     this.tapeAlphabet = new Set(tapeAlphabet);
     this.transitions = transitions;
     this.initialState = initialState;
     this.finalStates = new Set(finalStates);
-    this.rejectState = new Set(rejectState);
+    this.rejectStates = new Set(rejectStates);
     this.blankSymbol = blankSymbol;
   }
 
@@ -118,7 +118,8 @@ function lerConfiguracaoArquivo(nomeArquivo) {
   const [input, ...configArray] = conteudo.split(',');
   const configContent = configArray.join(',');
 
-  const regex = /\{\s*([^,{}]+(?:,[^,{}]+)*)\s*\},\s*\{\s*([^,{}]+(?:,[^,{}]+)*)\s*\},\s*\{\s*([^,{}]+(?:,[^,{}]+)*)\s*\},\s*\{\s*([^}]+)\s*\},\s*([^,]+),\s*\{\s*([^,{}]+(?:,[^,{}]+)*)\s*\},\s*([^,]+),\s*\{\s*([^,{}]+(?:,[^,{}]+)*)\s*\}/;
+  // Ajuste do regex para capturar corretamente o blankSymbol sem o '}' final
+  const regex = /\{\s*([^,{}]+(?:,[^,{}]+)*)\s*\},\s*\{\s*([^,{}]+(?:,[^,{}]+)*)\s*\},\s*\{\s*([^,{}]+(?:,[^,{}]+)*)\s*\},\s*\{\s*([^}]+)\s*\},\s*([^,]+),\s*\{\s*([^,{}]+(?:,[^,{}]+)*)\s*\},\s*\{\s*([^,{}]+(?:,[^,{}]+)*)\s*\},\s*([^,]+)}/;
 
   const match = configContent.match(regex);
 
@@ -126,7 +127,7 @@ function lerConfiguracaoArquivo(nomeArquivo) {
     throw new Error('Formato de arquivo inválido');
   }
 
-  const [_, states, inputAlphabet, tapeAlphabet, transitionsString, initialState, rejectStates, blankSymbol, finalStates] = match;
+  const [_, states, inputAlphabet, tapeAlphabet, transitionsString, initialState, finalStates, rejectStates, blankSymbol] = match;
 
   const machine = new TuringMachine(
     states.split(',').map(s => s.trim()),
