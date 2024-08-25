@@ -50,7 +50,7 @@ Discussão: A precisão do simulador em lidar com alfabetos mínimos e movimento
 Caso de teste 8
 
 Descrição: Teste de expansão para esquerda lendo ab
-Resultado Esperado: A máquina deve processar ab, movendo-se corretamente e sendo capaz de expandir conforme o necessário para esquerda e finalizando num estado final.
+Resultado Esperado: A máquina deve processar ab, movendo-se corretamente e sendo capaz de expandir conforme o necessário para esquerda e finalizando num estado final e aceito.
 Discussão: A precisão do simulador expandir para esquerda é confirmada.
 
 
