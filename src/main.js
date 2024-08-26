@@ -13,6 +13,7 @@ class TuringMachine {
     this.finalStates = new Set(finalStates); // Conjunto de estados de aceitação
     this.rejectStates = new Set(rejectStates); // Conjunto de estados de rejeição
     this.blankSymbol = blankSymbol; // Símbolo em branco da fita (usado para espaços em branco)
+    this.transitionCount = 0; // Contador de transições
   }
 
   // Método principal para executar a Máquina de Turing dada uma palavra de entrada
@@ -48,6 +49,9 @@ class TuringMachine {
       if (!transition) {
         break;
       }
+
+      // Incrementa o contador de transições
+      this.transitionCount++;
 
       // Extrai as partes da transição: novo estado, símbolo a ser escrito e direção do movimento
       const [newState, writeSymbol, moveDirection] = transition;
@@ -87,6 +91,12 @@ class TuringMachine {
       saidaData += 'Rejeita'; // Caso contrário, rejeita
       console.log('Rejeita');
     }
+
+    // Exibe o número de transições e o tamanho da entrada
+    const entradaLength = input.length;
+    const resultado = `\nNúmero de transições T(${entradaLength}) = ${this.transitionCount}\n`;
+    saidaData += resultado;
+    console.log(resultado);
 
     return tape.join(''); // Retorna a fita final como uma string
   }
